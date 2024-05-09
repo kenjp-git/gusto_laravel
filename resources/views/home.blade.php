@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gusto</title>
+    <!--<script src="{{ asset('js/app.js') }}"></script>-->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <h1>GUSTO</h1>
+    <div id="app">
+        <app/>
+    </div>
 </body>
 </html>
