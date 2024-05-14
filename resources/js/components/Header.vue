@@ -18,3 +18,10 @@ export default {
     }
 }
 </script>
+
+<style>
+header {
+    padding: 0 1em;
+    background: pink;
+}
+</style>
