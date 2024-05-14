@@ -2,8 +2,8 @@
 
 <template>
     <main>
-        <Side class="side"/>
-        <Items class="items"/>
+        <Side class="side" @show="show"/>
+        <Items :items="items" class="items"/>
     </main>
 </template>
 
@@ -17,7 +17,19 @@ export default {
     },
     data() {
         return {
-            
+            items: 'None'
+        }
+    }, 
+    methods: {
+        show: function(which) {
+            switch(which) {
+                case 'foods':
+                    this.items = "Foods"
+                    break
+                case 'drinks':
+                    this.items = "Drinks"
+                    break
+            }
         }
     }
 }
@@ -42,6 +54,7 @@ main {
     position: absolute;
     width: 80%;
     height: 100%;
+    padding: 1em 0 0;
     background: yellow;
 }
 </style>

@@ -14,11 +14,11 @@ export default {
         }
     },
     methods: {
-        foods: () => {
-
+        foods: function(){
+            this.$emit('show', 'foods')
         },
-        drinks: () => {
-
+        drinks: function() {
+            this.$emit('show', 'drinks')
         }
     }
 }
@@ -26,7 +26,7 @@ export default {
 
 <style>
 nav {
-    padding: 0;
+    padding: 1em 0 0;
     height: 100%;
     background: #efefef;
 }
