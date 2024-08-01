@@ -2,12 +2,15 @@
 
 <template>
     <main>
-        <Side class="side" @show="show"/>
+        <Side class="side" @show="showItems"/>
         <Items :items="items" class="items"/>
     </main>
 </template>
 
 <script>
+//const axios = require('axios')
+import axios from 'axios'
+
 import Side from './main/Side.vue'
 import Items from './main/Items.vue'
 
@@ -17,22 +20,35 @@ export default {
     },
     data() {
         return {
-            items: 'None'
+            items: 'Choose menu'
         }
     }, 
     methods: {
-        show: function(which) {
+        showItems: async function(which) {
+            let base_url = '/items/'
+            let items_name
             switch(which) {
                 case 'foods':
-                    this.items = "Foods"
+                    //this.items = "Foods"
+                    items_name = 'foods'
                     break
                 case 'drinks':
-                    this.items = "Drinks"
+                    //this.items = "Drinks"
+                    items_name = 'drinks'
+                    //console.log(this.items)
                     break
+                default:
+                    this.items = "Cannot get"
             }
+            await axios.get(`${base_url}${items_name}`).then(res => {
+                this.items = res.data
+            }).catch(err=> {
+                console.log(err)
+            })
         }
     }
 }
+
 </script>
 
 <style>

@@ -17,3 +17,8 @@ Route::get('/', function () {
     return view('home');
     //return view('welcome');
 });
+
+Route::get('items/{name?}', 'App\Http\Controllers\ItemsController@items');
+
+Route::get('register', 'App\Http\Controllers\RegisterController@index');
+Route::post('register', 'App\Http\Controllers\RegisterController@register');
