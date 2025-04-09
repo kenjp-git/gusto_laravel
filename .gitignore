@@ -19,4 +19,4 @@ yarn-error.log
 /.vscode
 LICENSE
 README.md
-/.gitignore
+.gitignore
